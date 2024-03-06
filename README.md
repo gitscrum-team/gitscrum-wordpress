@@ -8,9 +8,11 @@ This plugin empowers you to manage your tasks seamlessly within WordPress, makin
 
 ### Roadmap 
 
-( [ ] )  Explore your GitScrum project seamlessly integrated into WordPress
-( [ ] )  Effortlessly generate tasks for your team directly within WordPress.
-( [ ] )  Synchronize your WordPress posts with tasks seamlessly
+[ ]  Explore your GitScrum project seamlessly integrated into WordPress.
+
+[ ]  Effortlessly generate tasks for your team directly within WordPress.
+
+[ ]  Synchronize your WordPress posts with tasks seamlessly
 
 ### Join Our Development Team!
 
