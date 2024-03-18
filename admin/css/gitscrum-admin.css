@@ -2,3 +2,37 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+ .bunny-project-card{
+  min-width: 320px;
+}
+
+.bunny-project-card .el-card__body{
+  padding: 0;
+  height:165px;
+  border:1px solid rgba(255,255,255,0.1) !important;
+      background-color: rgba($color-2, 1) !important;
+}
+
+.bunny-project-card .background-img{
+  height:35px;
+  max-height:35px;
+  overflow:hidden;
+}
+
+.bunny-project-card .manage-label{
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  height: 35px;
+  background: #EBEEF5;
+  border-bottom: 1px solid #EBEEF5;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  cursor: move;
+}
+
+.bunny-project-card .project-avatar{
+  position:relative;
+  top:-22px;
+  margin-bottom: -20px;
+}

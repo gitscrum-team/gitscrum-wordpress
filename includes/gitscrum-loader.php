@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Register all actions and filters for the plugin
  *
@@ -21,6 +20,7 @@
  * @subpackage Gitscrum/includes
  * @author     Renato Marinho <renato.marinho@gitscrum.com>
  */
+
 class Gitscrum_Loader {
 
 	/**
@@ -123,6 +123,30 @@ class Gitscrum_Loader {
 		foreach ( $this->actions as $hook ) {
 			add_action( $hook['hook'], array( $hook['component'], $hook['callback'] ), $hook['priority'], $hook['accepted_args'] );
 		}
+
+	}
+
+	public function token() {
+		return '';
+	}
+
+	public function get_resource($url, $method = 'GET', $data = []) {
+
+		$token = $this->token();
+		
+		$options = array(
+				'method'  => $method,
+				'httpversion' => '1.1',
+				'sslverify' => false,
+				'headers' => [
+					'Authorization' => 'Bearer ' . $token,
+					'Content-Type'=> 'application/json',
+					'Accept' => 'application/json'
+				],
+		);
+
+		$response = wp_remote_request( $url, $options);
+		return json_decode( wp_remote_retrieve_body($response), true );
 
 	}
 

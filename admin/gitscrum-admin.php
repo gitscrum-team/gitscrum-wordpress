@@ -51,6 +51,42 @@ class Gitscrum_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		
+	}
+
+	public function init_gitscrum() {
+
+		$projects = new Gitscrum_Projects();
+
+		add_menu_page('GitScrum', 'GitScrum', 'manage_options', 'gitscrum', array($projects, 'list'), 'dashicons-admin-generic', 2);
+
+		$this->add_routes();
+		
+	}
+
+	public function special_menu_admin_menu() {
+		$projects = new Gitscrum_Projects();
+
+		add_menu_page(
+			'GitScrum',
+			'GitScrum',
+			'manage_options',
+			'gitscrum',
+			array($projects, 'list'),
+			'dashicons-admin-generic',
+			2
+		);
+	}
+
+	private function add_routes() {
+
+		$projects = new Gitscrum_Projects();
+		
+		add_submenu_page('gitscrum', 'Projects', 'Projects', 'manage_options', 'projects', array($projects, 'list') );
+		add_submenu_page('gitscrum', 'Team Members', 'Team Members', 'manage_options', 'team-members', array($projects, 'list') );
+		add_submenu_page('gitscrum', 'Workspace Settings', 'Workspace Settings', 'manage_options', 'workspace-settings', array($projects, 'list') );
+    
+		remove_submenu_page('gitscrum', 'gitscrum');
 
 	}
 
@@ -61,20 +97,9 @@ class Gitscrum_Admin {
 	 */
 	public function enqueue_styles() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Gitscrum_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Gitscrum_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/gitscrum-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style( $this->plugin_name . '_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), $this->version, 'all');
+		wp_enqueue_style( $this->plugin_name . '_element', 'https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.15.14/theme-chalk/index.min.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -83,18 +108,6 @@ class Gitscrum_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Gitscrum_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Gitscrum_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/gitscrum-admin.js', array( 'jquery' ), $this->version, false );
 

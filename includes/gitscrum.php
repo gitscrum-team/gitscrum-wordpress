@@ -103,24 +103,25 @@ class Gitscrum {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gitscrum-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/gitscrum-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gitscrum-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/gitscrum-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gitscrum-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/gitscrum-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/projects/class.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-gitscrum-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/gitscrum-public.php';
 
 		$this->loader = new Gitscrum_Loader();
 
@@ -154,8 +155,9 @@ class Gitscrum {
 
 		$plugin_admin = new Gitscrum_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'init_gitscrum');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
 	}
 
