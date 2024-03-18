@@ -20,9 +20,12 @@
  * @subpackage Gitscrum/admin
  * @author     Renato Marinho <renato.marinho@gitscrum.com>
  */
+
 #[\AllowDynamicProperties]
 
 class Gitscrum_Projects {
+
+    private $url_list = 'https://api.gitscrum.com/projects/?company_slug=';
 
     public function __construct() {
 
@@ -31,15 +34,14 @@ class Gitscrum_Projects {
     }
 
 	public function list() {
-		//require_once( dirname(__FILE__) . '/../public/login.php' );
-        
+
         $url = 'https://api.gitscrum.com/projects/?company_slug=gitscrum';
         
-        $response = $this->loader->get_resource($url, 'GET');
+        $response = $this->loader->get_resource($this->$url_list, 'GET');
 
         echo '<div class="mt-4"></div>';
         foreach ($response['data'] as $project) {
-          include( __DIR__ . '/templates/card.php');
+          include( plugin_dir_url( __FILE__ ) . '/templates/card.php');
         }
 	}
 
