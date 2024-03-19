@@ -1,6 +1,10 @@
+![GitScrum for Wordpress](https://github.com/gitscrum-team/gitscrum-wordpress/assets/26571/80384589-5114-4dfd-bd1c-3d97132104a2)
+
 # What is GitScrum for Wordpress?
 
 GitScrum is a robust project management tool, and with this plugin, you can seamlessly integrate numerous GitScrum features into WordPress. Empowering you to manage your projects directly within WordPress, this plugin eliminates the need to navigate to the GitScrum platform. Experience the full spectrum of GitScrum functionalities right at your fingertips, enhancing your project management efficiency without leaving the WordPress environment.
+
+Learn more about GitScrum: https://about.gitscrum.com/en
 
 ### Effortless Task Management in WordPress with GitScrum
 
