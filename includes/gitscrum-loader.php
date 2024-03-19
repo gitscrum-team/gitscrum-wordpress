@@ -126,8 +126,19 @@ class Gitscrum_Loader {
 
 	}
 
+	public function check_auth() {
+
+		if (!isset($_COOKIE['gitscrum_token']) && $_GET['page'] != 'gitscrum-login') {
+			wp_redirect( admin_url( 'admin.php?page=gitscrum-login' ) );
+			exit;
+		}
+
+	}
+
 	public function token() {
+
 		return '';
+
 	}
 
 	public function get_resource($url, $method = 'GET', $data = []) {

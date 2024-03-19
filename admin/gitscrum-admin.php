@@ -64,28 +64,17 @@ class Gitscrum_Admin {
 		
 	}
 
-	public function special_menu_admin_menu() {
-		$projects = new Gitscrum_Projects();
-
-		add_menu_page(
-			'GitScrum',
-			'GitScrum',
-			'manage_options',
-			'gitscrum',
-			array($projects, 'list'),
-			'dashicons-admin-generic',
-			2
-		);
-	}
-
 	private function add_routes() {
 
+		$auth = new Gitscrum_Auth();
 		$projects = new Gitscrum_Projects();
 		
-		add_submenu_page('gitscrum', 'Projects', 'Projects', 'manage_options', 'projects', array($projects, 'list') );
-		add_submenu_page('gitscrum', 'Team Members', 'Team Members', 'manage_options', 'team-members', array($projects, 'list') );
-		add_submenu_page('gitscrum', 'Workspace Settings', 'Workspace Settings', 'manage_options', 'workspace-settings', array($projects, 'list') );
+		add_submenu_page('gitscrum', 'Projects', 'Projects', 'manage_options', 'gitscrum-projects', array($projects, 'list') );
+		add_submenu_page('gitscrum', 'Team Members', 'Team Members', 'manage_options', 'gitscrum-team-members', array($projects, 'list') );
+		add_submenu_page('gitscrum', 'Workspace Settings', 'Workspace Settings', 'manage_options', 'gitscrum-workspace-settings', array($projects, 'list') );
     
+		add_submenu_page('-', 'Login', 'Login', 'manage_options', 'gitscrum-login', array($auth, 'login') );
+
 		remove_submenu_page('gitscrum', 'gitscrum');
 
 	}
@@ -100,6 +89,7 @@ class Gitscrum_Admin {
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/gitscrum-admin.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name . '_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', array(), $this->version, 'all');
 		wp_enqueue_style( $this->plugin_name . '_element', 'https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.15.14/theme-chalk/index.min.css', array(), $this->version, 'all');
+
 	}
 
 	/**

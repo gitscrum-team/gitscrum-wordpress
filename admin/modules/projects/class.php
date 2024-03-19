@@ -25,24 +25,24 @@
 
 class Gitscrum_Projects {
 
-    private $url_list = 'https://api.gitscrum.com/projects/?company_slug=';
+  private $url_list = 'https://api.gitscrum.com/projects/?company_slug=';
 
-    public function __construct() {
+  public function __construct() {
 
-        $this->loader = new Gitscrum_Loader();
+    $this->loader = new Gitscrum_Loader();
 
-    }
+    $this->loader->check_auth();
+
+  }
 
 	public function list() {
-
-        $url = 'https://api.gitscrum.com/projects/?company_slug=gitscrum';
         
-        $response = $this->loader->get_resource($this->$url_list, 'GET');
+    $response = $this->loader->get_resource($this->url_list, 'GET');
 
-        echo '<div class="mt-4"></div>';
-        foreach ($response['data'] as $project) {
-          include( plugin_dir_url( __FILE__ ) . '/templates/card.php');
-        }
+    foreach ($response['data'] as $project) {
+      include( __DIR__ . '/templates/card.php');
+    }
+
 	}
 
 }

@@ -115,6 +115,7 @@ class Gitscrum {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/gitscrum-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/auth/class.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/projects/class.php';
 
 		/**
