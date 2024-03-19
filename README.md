@@ -1,4 +1,4 @@
-![GitScrum for Wordpres](https://about.gitscrum.com/img/newsletter/003.jpg "GitScrum for Wordpres")
+![GitScrum for Wordpress](https://github.com/gitscrum-team/gitscrum-wordpress/assets/26571/80384589-5114-4dfd-bd1c-3d97132104a2)
 
 # What is GitScrum for Wordpress?
 
