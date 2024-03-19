@@ -20,7 +20,7 @@
  * @subpackage Gitscrum/includes
  * @author     Renato Marinho <renato.marinho@gitscrum.com>
  */
-
+session_start();
 class Gitscrum_Loader {
 
 	/**
@@ -128,7 +128,7 @@ class Gitscrum_Loader {
 
 	public function check_auth() {
 
-		if (!isset($_COOKIE['gitscrum_token']) && $_GET['page'] != 'gitscrum-login') {
+		if (empty($_SESSION['gitscrum']) && $_GET['page'] != 'gitscrum-login') {
 			wp_redirect( admin_url( 'admin.php?page=gitscrum-login' ) );
 			exit;
 		}
@@ -137,16 +137,20 @@ class Gitscrum_Loader {
 
 	public function token() {
 
-		return '';
+		if (!empty($_SESSION['gitscrum'])) {
+			$gitscrum = unserialize(base64_decode($_SESSION['gitscrum']));
+			return $gitscrum['access_token'];
+		}
 
+		return '';
 	}
 
 	public function get_resource($url, $method = 'GET', $data = []) {
 
 		$token = $this->token();
 		
-		$options = array(
-				'method'  => $method,
+		$options = [
+				'method' => $method,
 				'httpversion' => '1.1',
 				'sslverify' => false,
 				'headers' => [
@@ -154,7 +158,11 @@ class Gitscrum_Loader {
 					'Content-Type'=> 'application/json',
 					'Accept' => 'application/json'
 				],
-		);
+		];
+
+		if ( !empty($data) ){
+			$options['body'] = $data;
+		}
 
 		$response = wp_remote_request( $url, $options);
 		return json_decode( wp_remote_retrieve_body($response), true );

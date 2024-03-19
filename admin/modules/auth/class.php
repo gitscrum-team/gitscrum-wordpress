@@ -35,14 +35,25 @@ class Gitscrum_Auth {
 
 	public function login() {
         
+    if ( isset($_POST['email']) && isset($_POST['password']) ) {
+      $this->do_login();
+    }
+    
     include( __DIR__ . '/templates/login.php');
 
 	}
 
   public function do_login() {
-
-    $response = $this->loader->get_resource($this->$url_list, 'POST');
+    
+    $data = json_encode(['email' => $_POST['email'], 'password' => $_POST['password'], 'ipv4' => $_SERVER['REMOTE_ADDR']]);
+    $response = $this->loader->get_resource($this->url_login, 'POST', $data);
+    
+    $_SESSION['gitscrum'] = base64_encode(serialize($response['data']));
+    
+    echo '<script>window.location.href = "/wp-admin/admin.php?page=gitscrum-projects";</script>';
+    exit();
 
   }
+  
 
 }

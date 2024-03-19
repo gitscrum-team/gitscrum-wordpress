@@ -25,12 +25,12 @@
                     <p class="m-0 font-weight-normal text-muted">Please Sign In to Access Your Account </p>
                 </div>
                 <div class="mt-3 text-left mb-3">
-                  <form action="https://about.gitscrum.com/en/login" method="post" class="el-form el-form--label-top">
+                  <form action="" method="post" class="el-form el-form--label-top">
                     <div class="mb-2 el-input el-input--medium">
-                        <input type="email" autocomplete="email" maxlength="120" trim="" required="required" placeholder="E-mail" class="el-input__inner">
+                        <input type="email" name="email" autocomplete="email" maxlength="120" required="required" placeholder="E-mail" class="el-input__inner">
                     </div>
                     <div class="el-input el-input--medium el-input--suffix">
-                        <input type="password" autocomplete="off" maxlength="60" trim="" required="required" placeholder="Password" class="el-input__inner">
+                        <input type="password" name="password" autocomplete="off" maxlength="60" required="required" placeholder="Password" class="el-input__inner">
                     </div>
                     <button type="submit" class="el-button w-100 mt-2 el-button--primary el-button--medium is-plain"><span><span class="museo-sans-700">Sign in</span></span></button>
                   </form>

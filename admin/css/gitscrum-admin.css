@@ -3,6 +3,77 @@
  * included in this file.
  */
 
+@import url("https://use.typekit.net/tdu8ywr.css");
+.wpbody,
+.wpbody p {
+    font-family: "museo-sans", sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.museo-sans-300 {
+    font-family: "museo-sans", sans-serif !important;
+    font-weight: 300 !important;
+    font-style: normal !important;
+}
+
+.museo-sans-500 {
+    font-family: "museo-sans", sans-serif !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
+}
+
+.museo-sans-700 {
+    font-family: "museo-sans", sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+
+.museo-sans-display-400 {
+    font-family: "museo-sans-display", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+.museo-sans-display-800 {
+    font-family: "museo-sans-display", sans-serif !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+}
+
+.museo-sans-rounded-300 {
+    font-family: "museo-sans-rounded", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 300 !important;
+}
+
+.museo-sans-rounded-700 {
+    font-family: "museo-sans-rounded", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+}
+
+.museo-sans-cond-300 {
+    font-family: "museo-sans-condensed", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 300 !important;
+}
+
+.museo-sans-cond-500 {
+    font-family: "museo-sans-condensed", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+}
+
+.museo-sans-cond-700 {
+    font-family: "museo-sans-condensed", sans-serif !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+}
+
 .bunny-project-card {
     min-width: 320px;
 }
